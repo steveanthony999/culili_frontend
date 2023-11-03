@@ -1,3 +1,8 @@
+.navbar {
+  padding: 2rem;
+  background-color: transparent;
+}
+
 .navbar .container {
   display: flex;
   flex-direction: row;
@@ -5,6 +10,6 @@
   justify-content: space-between;
 }
 
-a:first-child {
+.navbar .container .navbar-menu a:first-child {
   margin-right: 1rem;
 }
