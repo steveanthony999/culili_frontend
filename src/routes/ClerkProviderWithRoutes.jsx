@@ -9,6 +9,7 @@ import Dashboard from './Dashboard';
 import SignUpPage from './SignUpPage';
 import SignInPage from './SignInPage';
 import CreatingUser from './CreatingUser';
+import EmailVerified from './EmailVerified';
 
 if (!import.meta.env.VITE_CLERK_PK) {
   throw new Error('Missing Publishable Key');
@@ -25,6 +26,7 @@ const ClerkProviderWithRoutes = () => {
         <Route exact path="/" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
         <Route path="/createuser" element={<CreatingUser />} />
+        <Route path="/email-verified" element={<EmailVerified />} />
         <Route
           path="/protected"
           element={
