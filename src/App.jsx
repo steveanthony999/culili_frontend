@@ -3,11 +3,9 @@ import ClerkProviderWithRoutes from './routes/ClerkProviderWithRoutes';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <ClerkProviderWithRoutes />
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <ClerkProviderWithRoutes />
+    </BrowserRouter>
   );
 }
 

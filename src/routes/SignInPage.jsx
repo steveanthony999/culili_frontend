@@ -1,11 +1,11 @@
 import { SignIn } from '@clerk/clerk-react';
+import './SignInPage.css';
 
 const SignInPage = () => {
   return (
-    <>
-      <h1>Sign In Page</h1>
+    <div className="SignInPage">
       <SignIn signUpUrl="/sign-up" afterSignInUrl="/protected" />
-    </>
+    </div>
   );
 };
 
