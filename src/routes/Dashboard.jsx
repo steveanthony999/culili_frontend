@@ -1,10 +1,9 @@
-import { UserButton } from '@clerk/clerk-react';
+import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
   return (
     <div>
-      <h1>Hello Dashboard</h1>
-      <UserButton afterSignOutUrl={'/'} />
+      <Sidebar />
     </div>
   );
 };
