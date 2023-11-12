@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -5,8 +6,15 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Menu } from 'antd';
-// import { UserButton } from '@clerk/clerk-react';
+import { Menu, Layout } from 'antd';
+
+const { Sider } = Layout;
+
+const siderStyle = {
+  textAlign: 'center',
+  lineHeight: '120px',
+  minHeight: 'calc(100vh - 64px)',
+};
 
 function getItem(label, key, icon, children) {
   return {
@@ -18,7 +26,6 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  // getItem(<UserButton afterSignOutUrl={'/'} />),
   getItem('Option 1', '1', <PieChartOutlined />),
   getItem('Option 2', '2', <DesktopOutlined />),
   getItem('User', 'sub1', <UserOutlined src="" />, [
@@ -34,13 +41,23 @@ const items = [
 ];
 
 const Sidebar = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <Menu
-      style={{ minHeight: '100%' }}
-      defaultSelectedKeys={['1']}
-      mode="inline"
-      items={items}
-    />
+    <Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={(value) => setCollapsed(value)}
+      style={siderStyle}
+      theme="light"
+    >
+      <Menu
+        style={{ minHeight: '100%' }}
+        defaultSelectedKeys={['1']}
+        mode="inline"
+        items={items}
+      />
+    </Sider>
   );
 };
 
