@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -6,10 +5,8 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { UserButton } from '@clerk/clerk-react';
-
-const { Header, Content, Footer, Sider } = Layout;
+import { Menu } from 'antd';
+// import { UserButton } from '@clerk/clerk-react';
 
 function getItem(label, key, icon, children) {
   return {
@@ -21,7 +18,7 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem(<UserButton afterSignOutUrl={'/'} />),
+  // getItem(<UserButton afterSignOutUrl={'/'} />),
   getItem('Option 1', '1', <PieChartOutlined />),
   getItem('Option 2', '2', <DesktopOutlined />),
   getItem('User', 'sub1', <UserOutlined src="" />, [
@@ -37,70 +34,13 @@ const items = [
 ];
 
 const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
   return (
-    <Layout
-      style={{
-        minHeight: '100vh',
-      }}
-    >
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-      >
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          defaultSelectedKeys={['1']}
-          mode="inline"
-          items={items}
-        />
-      </Sider>
-      <Layout>
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-          }}
-        />
-        <Content
-          style={{
-            margin: '0 16px',
-          }}
-        >
-          <Breadcrumb
-            style={{
-              margin: '16px 0',
-            }}
-          >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-              background: colorBgContainer,
-            }}
-          >
-            Bill is a cat.
-          </div>
-        </Content>
-        <Footer
-          style={{
-            textAlign: 'center',
-          }}
-        >
-          Ant Design ©2023 Created by Ant UED
-        </Footer>
-      </Layout>
-    </Layout>
+    <Menu
+      style={{ minHeight: '100%' }}
+      defaultSelectedKeys={['1']}
+      mode="inline"
+      items={items}
+    />
   );
 };
 
