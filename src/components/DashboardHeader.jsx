@@ -13,7 +13,7 @@ const DashboardHeader = () => {
       <h3>Culili</h3>
       <div>Menu</div>
       <div>
-        <UserButton afterSignOutUrl={'/'} />
+        <UserButton showName afterSignOutUrl={'/'} />
       </div>
     </div>
   );

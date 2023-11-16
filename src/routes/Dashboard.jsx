@@ -14,10 +14,9 @@ const headerStyle = {
   borderBottom: '1px solid #eee',
 };
 const contentStyle = {
-  textAlign: 'center',
-  minHeight: 120,
   lineHeight: '120px',
   backgroundColor: '#fff',
+  padding: '0 2rem',
 };
 const footerStyle = {
   textAlign: 'center',

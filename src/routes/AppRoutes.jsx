@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import {
   useUser,
@@ -12,15 +13,27 @@ import SignInPage from './SignInPage';
 import CreatingUser from './CreatingUser';
 import EmailVerified from './EmailVerified';
 
+import { logout, login } from '../slices/authSlice';
+
 const AppRoutes = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isSignedIn } = useUser();
+  const { isSignedIn, user: clerkUser } = useUser();
 
   useEffect(() => {
     if (isSignedIn) {
+      const userData = {
+        firstName: clerkUser.firstName,
+        lastName: clerkUser.lastName,
+        email: clerkUser.emailAddresses[0].emailAddress,
+      };
+
+      dispatch(login(userData));
       navigate('/dashboard');
+    } else if (!isSignedIn) {
+      dispatch(logout());
     }
-  }, [isSignedIn, navigate]);
+  }, [isSignedIn, clerkUser, navigate]);
 
   return (
     <Routes>
