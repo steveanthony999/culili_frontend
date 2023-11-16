@@ -120,7 +120,9 @@ const authSlice = createSlice({
       .addCase(getCurrentUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.currentUser = action.payload;
+        // TODO: Either duplicate to include 'currentUser' or leave as user, if situation arises
+        // state.currentUser = action.payload;
+        state.user = action.payload;
       })
       .addCase(getCurrentUser.rejected, (state, action) => {
         state.isLoading = false;
