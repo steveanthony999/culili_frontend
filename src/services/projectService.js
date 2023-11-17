@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL + 'projects/';
+const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL + '/projects/';
 
 // Create a New Project
 const createProject = async (projectData, token) => {
