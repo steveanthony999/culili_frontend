@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_BACKEND_API_URL + '/users/';
+const API_URL = import.meta.env.VITE_BACKEND_API_URL + 'users/';
 
 // Register User
 const register = async (userData) => {
