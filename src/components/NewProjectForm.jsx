@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Input, Checkbox } from 'antd';
+import { Form, Input } from 'antd';
+import PropTypes from 'prop-types';
 
 const NewProjectForm = ({ form }) => {
   return (
@@ -30,6 +30,10 @@ const NewProjectForm = ({ form }) => {
       </Form.Item>
     </Form>
   );
+};
+
+NewProjectForm.propTypes = {
+  form: PropTypes.object.isRequired,
 };
 
 export default NewProjectForm;

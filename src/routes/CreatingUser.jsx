@@ -27,7 +27,7 @@ const CreatingUser = () => {
     if (isSignedIn && isLoaded) {
       createUserInDatabase();
     }
-  }, [isLoaded, isSignedIn, clerkUser]);
+  }, [dispatch, isLoaded, isSignedIn, clerkUser]);
 
   return (
     <div>

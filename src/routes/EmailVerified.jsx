@@ -1,7 +1,7 @@
 import { RedirectToSignIn, useUser } from '@clerk/clerk-react';
 
 const EmailVerified = () => {
-  const { isSignedIn, user, isLoaded } = useUser();
+  const { isSignedIn, isLoaded } = useUser();
 
   const handleClose = () => {
     window.close();

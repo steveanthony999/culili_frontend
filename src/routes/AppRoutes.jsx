@@ -33,7 +33,7 @@ const AppRoutes = () => {
     } else if (!isSignedIn) {
       dispatch(logout());
     }
-  }, [isSignedIn, clerkUser, navigate]);
+  }, [isSignedIn, clerkUser, navigate, dispatch]);
 
   return (
     <Routes>

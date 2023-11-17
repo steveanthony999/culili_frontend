@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Flex, Modal, Form } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
