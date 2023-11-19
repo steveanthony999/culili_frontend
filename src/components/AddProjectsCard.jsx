@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Flex, Modal, Form } from 'antd';
+import { Card, Flex, Modal, Form, Progress, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { getCurrentUser } from '../slices/authSlice';
 import { createProject } from '../slices/projectSlice';
@@ -9,6 +9,7 @@ import NewProjectForm from './NewProjectForm';
 const AddProjectsCard = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+  const { isLoading, error } = useSelector((state) => state.projects);
   const [form] = Form.useForm();
   const [numProjects, setNumProjects] = useState(0);
   const [open, setOpen] = useState(false);
@@ -23,6 +24,12 @@ const AddProjectsCard = () => {
       setNumProjects(user.numProjects);
     }
   }, [user]);
+
+  useEffect(() => {
+    if (error) {
+      message.error('Failed to create project');
+    }
+  }, [error]);
 
   const showAddProjectForm = () => {
     setOpen(true);
@@ -50,7 +57,6 @@ const AddProjectsCard = () => {
   };
 
   const handleCancel = () => {
-    console.log('Clicked cancel button');
     setOpen(false);
   };
 
@@ -75,6 +81,7 @@ const AddProjectsCard = () => {
         onCancel={handleCancel}
       >
         <NewProjectForm form={form} />
+        {isLoading && <Progress percent={50} status="active" />}
       </Modal>
     </>
   );

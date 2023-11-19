@@ -28,6 +28,14 @@ const NewProjectForm = ({ form }) => {
       >
         <Input />
       </Form.Item>
+
+      <Form.Item
+        label="Repository URL"
+        name="repositoryUrl"
+        rules={[{ required: true, message: 'Please input the repository URL!' }]}
+      >
+        <Input />
+      </Form.Item>
     </Form>
   );
 };
